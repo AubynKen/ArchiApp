@@ -34,13 +34,15 @@ h1 {
     color: #C4FCEF;
 }
 
+
 /* Message list styling */
 .message-body {
     background-color: #ffffff;
     padding: 10px;
     list-style: none;
     width: 90%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Subtle shadow */
+    border: solid 2px #ccc;
+    margin-top: 10px;
 }
 
 /* Form styling */
