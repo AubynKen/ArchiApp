@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css"/>
+    <script src="script.js" defer></script>
 </head>
 <body>
-<h1>Message App</h1>
+<header>
+    <h1>Message App</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
 <ul id="message-list">
     <li class="message-body">Placeholder for message 1</li>
     <li class="message-body">Placeholder for message 2</li>
@@ -15,14 +26,13 @@
     <li class="message-body">Placeholder for message 4</li>
     <li class="message-body">Placeholder for message 5</li>
 </ul>
+
 <form id="message-form">
-    <label for="story">Tell us your story:</label> <br>
-    <textarea id="story" name="story" rows="5" cols="33">
-It was a dark and stormy night...
-    </textarea>
-    <br>
+    <label for="story">Tell us your story:</label><br>
+    <textarea id="story" name="story" rows="5" cols="33"
+              style="vertical-align: top;">It was a dark and stormy night...</textarea><br>
     <button type="submit">Send</button>
 </form>
+
 </body>
-<script src="script.js"></script>
 </html>
