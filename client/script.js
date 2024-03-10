@@ -22,6 +22,8 @@ const showMessages = (messages) => {
 
 const update = showMessages; // alias
 
+update(msgs);
+
 document
     .querySelector("#message-form > button")
 
