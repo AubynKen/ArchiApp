@@ -5,16 +5,16 @@ body {
     text-align: center;
 }
 
-/* set variables for colors */
-:root {
-    --primary-color: #2C73D2;
-    --secondary-color: #FF9671;
-    --tertiary-color: #008F7A;
-}
+
+/*:root {*/
+/*    --primary-color: #2C73D2;*/
+/*    --secondary-color: #FF9671;*/
+/*    --tertiary-color: #008F7A;*/
+/*}*/
 
 /* Header styling */
 header {
-    background-color: var(--primary-color);
+    background-color: #2C73D2;
     padding: 20px 0;
     text-align: center;
 }
