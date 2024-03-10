@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 // routes corresponding to the getting started exercises
 app.get("/", handleHello)
 app.get("/json/object", handleGetJsonObject)
-app.get("/test/:messageContent", handleGetJsonObject);
+app.get("/test/:messageContent", handleGetTest);
 app.get("/json/array", handleGetJsonArray);
 
 // counter increase exercise
