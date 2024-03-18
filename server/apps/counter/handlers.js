@@ -1,6 +1,31 @@
-const {DEFAULT_INCREASE} = require("../constants");
-
 let count = 0; // global state
+
+const handleQuery = (req, res) => {
+    let {v: value} = req.query;
+
+    if (value == null) {
+        res.send({
+            code: 0,
+            message: `Current count is ${count}`
+        })
+        return;
+    }
+
+    if (!Number.isInteger(+value)) {
+        res.send({
+            code: -1,
+            error: "Value is not an integer"
+        });
+        return;
+    }
+
+    count += parseInt(value);
+    res.send({
+        code: 0,
+        message: `Successfully incremented to ${count}`
+    });
+}
+
 const handleIncrease = (req, res) => {
     const {value} = req.query;
 
@@ -26,6 +51,6 @@ const handleIncrease = (req, res) => {
     });
 }
 
-module.exports = {
-    handleIncrease,
-}
+
+
+module.exports = {handleIncrease, handleQuery}
