@@ -11,7 +11,7 @@ router
         res.send({a: 1, b: 2});
     })
 
-    .get("/json/array:", (req, res) => {
+    .get("/json/array", (req, res) => {
         res.send(["Hello", "World", "!"]);
     })
 

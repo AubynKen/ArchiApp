@@ -9,7 +9,7 @@ const handleGetMessageById = (req, res) => {
     const {id: messageId} = req.params;
     const message = allMessages.find(m => m.id === messageId);
 
-    if (message === undefined) {
+    if (message == null) {
         return res.json({code: 0});
     }
 
@@ -21,7 +21,10 @@ const handleGetMessageById = (req, res) => {
 
 const handleGetMessageCount = (req, res) => {
     const numberOfMessages = allMessages.length;
-    res.send(numberOfMessages)
+
+    // res.send does not support number according to the documentation
+    // sending a string instead
+    res.send(numberOfMessages.toString());
 };
 
 const handleGetAllMessages = (req, res) => {
@@ -41,10 +44,29 @@ const handlePostMessage =  (req, res) => {
     res.send(id);
 };
 
+const handleDeleteMessage = (req, res) => {
+    const {id} = req.params;
+    const message = allMessages.find(msg => msg.id === id);
+
+    if (message == null) {
+        return res.json({
+            code: -1,
+            error: "Message not found"
+        });
+    }
+
+    // remove message
+    allMessages.splice(allMessages.indexOf(message), 1);
+    res.json({
+        code: 0,
+        message: "Message deleted"
+    });
+}
 
 module.exports = {
     handleGetMessageById,
     handleGetMessageCount,
     handleGetAllMessages,
     handlePostMessage,
+    handleDeleteMessage,
 }

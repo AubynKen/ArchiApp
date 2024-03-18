@@ -30,7 +30,7 @@ const handleIncrease = (req, res) => {
     const {value} = req.query;
 
     if (value === undefined) {
-        count += DEFAULT_INCREASE;
+        count += 1; // default increase
         return res.send({
             code: 0,
             message: `Successfully incremented to ${count}`
