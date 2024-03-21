@@ -22,9 +22,7 @@ let posts = [
 const showPosts = () => {
     const messageList = document.getElementById('message-list');
     messageList.innerHTML = '';
-
-    console.log(posts)
-
+    
     posts.forEach(({id, ts, content}) => {
         const milliseconds = ts * 1000;
         const dateString = new Date(milliseconds).toLocaleDateString();
@@ -56,7 +54,7 @@ const showPosts = () => {
 
             await fetchDataAndShowPost();
         }
-        
+
         li.appendChild(deleteButton);
 
         messageList.appendChild(li);
@@ -69,8 +67,14 @@ const showPosts = () => {
  * param is not present
  */
 const getCurrBoardName = () => {
-    const {boardName} = new URL(document.location).searchParams;
+    const boardName = new URL(document.location.href).searchParams.get("boardName")
     return boardName || "global";
+}
+
+const setCurrBoardName = (boardName) => {
+    const currUrl = new URL(document.location.href);
+    currUrl.searchParams.set('boardName', boardName);
+    document.location.href = currUrl.toString();
 }
 
 /**
@@ -158,6 +162,13 @@ const onSendMessage = async (event) => {
 
 const submitButton = document.getElementById("btn-submit");
 submitButton.onclick = onSendMessage;
+
+const boardNameElement = document.getElementById("board-name");
+const changeBoardButton = document.getElementById("change-board");
+changeBoardButton.onclick = () => {
+    setCurrBoardName(boardNameElement.value);
+    fetchDataAndShowPost().then();
+}
 
 // pull periodically messages from the server
 // an alternative would be to have bidirectional communication through websockets

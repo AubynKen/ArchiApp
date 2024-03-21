@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(cors({
-    origin: 'http://localhost:63343',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 

@@ -48,7 +48,7 @@ textarea {
     border-radius: 5px; /* Rounded corners for the textarea */
 }
 
-button {
+#btn-submit {
     background-color: #0077FF;
     color: white;
     border: none;
@@ -60,5 +60,10 @@ button {
 
 button:hover {
     background-color: #0088FF; /* slight contrast on hover */
+}
+
+.input-group {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
