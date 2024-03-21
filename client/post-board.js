@@ -26,10 +26,10 @@ const showPosts = () => {
     console.log(posts)
 
     posts.forEach(({id, ts, content}) => {
-        console.log(ts)
         const milliseconds = ts * 1000;
         const dateString = new Date(milliseconds).toLocaleDateString();
 
+        // create the DOM node representing the message
         const li = document.createElement('li');
         li.className = "message-body";
         li.innerHTML = `${content}
@@ -37,6 +37,27 @@ const showPosts = () => {
                         <small class="message-date">
                             --${dateString}
                         </small>`
+
+        // delete button and the callback function
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = "Delete";
+        deleteButton.onclick = async () => {
+            const result = await fetch(
+                `${BACKEND_PREFIX}/${getCurrBoardName()}/${id}`,
+                {
+                    method: "DELETE"
+                }
+            )
+
+            if (!result.ok) {
+                alert("Failed to delete message");
+                return;
+            }
+
+            await fetchDataAndShowPost();
+        }
+        
+        li.appendChild(deleteButton);
 
         messageList.appendChild(li);
     })
@@ -126,7 +147,6 @@ const onSendMessage = async (event) => {
     )
 
     if (!result.ok) {
-        console.log(result);
         alert("Failed to send message.");
         return;
     }
