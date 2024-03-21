@@ -1,4 +1,9 @@
-# Tests Made
+# Report of the project
+----
+## Frontend
+
+---
+## Backend
 
 ## Basics
 
@@ -127,4 +132,38 @@ The uuid is returned:
   "message": "Message deleted"
 }
 ```
+
+
+## Below are tests for the backend used for the final application
+router
+.get("/:boardName", handleGetAllNotes)
+.get("/:boardName/count", handleGetNoteCount)
+.get("/:boardName/:noteId", handleGetNoteById)
+.post("/:boardName", handleCreateNote)
+.delete("/:boardName/:noteId", handleDeleteNote)
+
+
+### GET /post-board/global
+
+```json
+[
+  {
+    "id": "d37a85b8-957c-4da3-a5a2-23360deda11c",
+    "ts": 1710943804,
+    "content": "Welcome to the Post Board App!"
+  },
+  {
+    "id": "0ee925d6-cd6f-4bef-a1f9-29a5e152e892",
+    "ts": 1710943805,
+    "content": "You are in the global post board, you can switch to any other post board as you like!"
+  }
+]
+```
+
+### GET /post-board/wfuytneimrto
+
+```json
+[]
+```
+
 

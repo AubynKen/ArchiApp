@@ -5,6 +5,9 @@ const allMessages = [
     {id: "2", content: "CentraleSupelec Forever"}
 ];
 
+const chatRooms = new Map();
+chatRooms.set("global", allMessages);
+
 const handleGetMessageById = (req, res) => {
     const {id: messageId} = req.params;
     const message = allMessages.find(m => m.id === messageId);

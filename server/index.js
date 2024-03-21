@@ -1,6 +1,6 @@
 // import Express.js module
 const express = require("express");
-const {basicsRouter, counterRouter, messagesRouter} = require("./apps");
+const {basicsRouter, counterRouter, messagesRouter, postBoardRouter} = require("./apps");
 
 const app = express();
 
@@ -14,12 +14,15 @@ app.use(function (req, res, next) {
 // counter service with state
 app.use("/cpt", counterRouter);
 
-
-// relating to messaging
+// relating to messaging in the initial app
 app.use("/msg", messagesRouter);
 
 // routes corresponding to the getting started exercises
 app.use("/", basicsRouter);
+
+// we've decided to set up a separate router with different routes
+// to have an api that is more restful
+app.use("/post-board", postBoardRouter)
 
 
 app.listen(8080);
