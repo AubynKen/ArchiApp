@@ -1,7 +1,7 @@
 // import Express.js module
 const express = require("express");
 const {basicsRouter, counterRouter, messagesRouter, postBoardRouter} = require("./apps");
-
+const bodyParser = require('body-parser');
 const app = express();
 
 // allow cross-origin requests
@@ -10,6 +10,9 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+// middleware for parsing json data
+app.use(bodyParser.json());
 
 // counter service with state
 app.use("/cpt", counterRouter);

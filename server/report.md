@@ -134,7 +134,7 @@ The uuid is returned:
 ```
 
 
-## Below are tests for the backend used for the final application
+## Below are some of the tests for the backend used for the final application
 router
 .get("/:boardName", handleGetAllNotes)
 .get("/:boardName/count", handleGetNoteCount)

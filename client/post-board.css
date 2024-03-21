@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+/*:root {*/
+/*    --primary-color: #2C73D2;*/
+/*    --secondary-color: #FF9671;*/
+/*    --tertiary-color: #008F7A;*/
+/*}*/
+
+/* Header styling */
+header {
+    background-color: #2C73D2;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    color: #C4FCEF;
+}
+
+
+/* Message list styling */
+.message-body {
+    background-color: #ffffff;
+    padding: 10px;
+    list-style: none;
+    width: 90%;
+    border: solid 2px #ccc;
+    margin-top: 10px;
+}
+
+/* Form styling */
+#message-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+textarea {
+    width: 90%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners for the textarea */
+}
+
+button {
+    background-color: #0077FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px; /* Consistent rounded corners */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0088FF; /* slight contrast on hover */
+}
+

@@ -25,10 +25,12 @@ const handleGetNoteCount = (req, res) => {
 
 const handleCreateNote = (req, res) => {
     const {boardName} = req.params;
-    const note = req.body;
-    const id = MockDB.insertNote(boardName, note);
+    // extract "content" field of request body
+    console.log(req.body);
+    const {content} = req.body;
+    const id = MockDB.insertNote(boardName, content);
 
-    res.status(201).send({id});
+    res.status(201).json({id});
 };
 
 const handleDeleteNote = (req, res) => {
@@ -52,5 +54,5 @@ module.exports = {
     handleGetNoteCount,
     handleCreateNote,
     handleDeleteNote,
-    handleGetAllPostBoards: handleGetAllBoardNames
+    handleGetAllBoardNames,
 }
