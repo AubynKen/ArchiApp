@@ -38,6 +38,8 @@ const showPosts = () => {
 
         // delete button and the callback function
         const deleteButton = document.createElement('button');
+        deleteButton.className = "btn btn-danger";
+        
         deleteButton.innerHTML = "Delete";
         deleteButton.onclick = async () => {
             const result = await fetch(
