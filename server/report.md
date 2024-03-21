@@ -142,8 +142,17 @@ router
 .post("/:boardName", handleCreateNote)
 .delete("/:boardName/:noteId", handleDeleteNote)
 
+### Get all post board names
+#### GET /post-board
+```json
+[
+"global",
+"gossips"
+]
+```
 
-### GET /post-board/global
+### Get all notes from the "global" post board
+#### GET /post-board/global
 
 ```json
 [
@@ -160,10 +169,19 @@ router
 ]
 ```
 
-### GET /post-board/wfuytneimrto
+### Get all notes from a board name that doesn't exist
+#### GET /post-board/wfuytneimrto
 
 ```json
 []
 ```
 
+### Count the number of messages in the global channel
+#### GET /post-board/global/count
+```json
+{
+  "boardName": "global",
+  "count": 2
+}
+```
 

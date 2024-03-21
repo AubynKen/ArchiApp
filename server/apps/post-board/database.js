@@ -29,6 +29,11 @@ class PostBoard {
         return board.find(m => m.id === noteId);
     }
 
+    getAllBoardNames() {
+        return Array.from(this.boards)
+            .map(([boardName, content]) => boardName)
+    }
+
     /**
      * Get the number of notes in a post board
      * @param boardName

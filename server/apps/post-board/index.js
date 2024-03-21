@@ -3,7 +3,8 @@ const {
     handleGetNoteById,
     handleGetNoteCount,
     handleCreateNote,
-    handleDeleteNote
+    handleDeleteNote,
+    handleGetAllPostBoards,
 } = require("./handlers.js")
 const express = require("express");
 
@@ -13,6 +14,7 @@ router
     .get("/:boardName", handleGetAllNotes)
     .get("/:boardName/count", handleGetNoteCount)
     .get("/:boardName/:noteId", handleGetNoteById)
+    .get("/", handleGetAllPostBoards)
     .post("/:boardName", handleCreateNote)
     .delete("/:boardName/:noteId", handleDeleteNote)
 
