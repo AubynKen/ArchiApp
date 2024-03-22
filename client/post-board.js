@@ -1,5 +1,5 @@
 // constants
-const BACKEND_PREFIX = "http://localhost:8080/post-board"
+const BACKEND_PREFIX = "https://archiapp.onrender.com/post-board"
 const PULL_INTERVAL = 5000; // pull messages every 5 seconds
 
 // global variable, posts fetched from the backend and that we show on the page
@@ -22,7 +22,7 @@ let posts = [
 const showPosts = () => {
     const messageList = document.getElementById('message-list');
     messageList.innerHTML = '';
-    
+
     posts.forEach(({id, ts, content}) => {
         const milliseconds = ts * 1000;
         const dateString = new Date(milliseconds).toLocaleDateString();
@@ -39,7 +39,7 @@ const showPosts = () => {
         // delete button and the callback function
         const deleteButton = document.createElement('button');
         deleteButton.className = "btn btn-danger";
-        
+
         deleteButton.innerHTML = "Delete";
         deleteButton.onclick = async () => {
             const result = await fetch(
