@@ -16,7 +16,6 @@ router.get("/:boardName", handleGetAllNotes);
 // and can't have "count"as a note Id.
 router.get("/:boardName/count", handleGetNoteCount)
 
-
 router.get("/:boardName/:noteId", handleGetNoteById)
 
 router.get("/", handleGetAllBoardNames)

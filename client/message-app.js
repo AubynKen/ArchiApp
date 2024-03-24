@@ -1,6 +1,6 @@
-const SERVER_ADDR = "http://localhost:8080";
+const SERVER_ADDR = "https://archiapp.onrender.com/";
 
-DEFAULT_MESSAGES = [
+globalMessages = [
     {"msg": "Hello World"},
     {"msg": "Blah Blah"},
     {"msg": "I love cats"}
@@ -22,7 +22,7 @@ const showMessages = (messages) => {
     }
 }
 
-const update = () => showMessages(DEFAULT_MESSAGES); // alias
+const update = () => showMessages(globalMessages); // alias
 update();
 
 // add event listener to the button to append a new message
@@ -33,8 +33,8 @@ document
         e.preventDefault();
 
         const input = document.getElementById('new-msg').value;
-        DEFAULT_MESSAGES.push({"msg": input});
-        update(DEFAULT_MESSAGES);
+        globalMessages.push({"msg": input});
+        update(globalMessages);
     })
 
 /**
@@ -61,7 +61,7 @@ const loadMessages = async () => {
 
     if (messages.length === 0) {
         // fallback to placeholder messages
-        showMessages(DEFAULT_MESSAGES);
+        showMessages(globalMessages);
         return;
     }
 
